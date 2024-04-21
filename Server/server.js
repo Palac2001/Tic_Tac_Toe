@@ -3,7 +3,7 @@ const { Server } = require("socket.io");
 
 const httpServer = createServer();
 const io = new Server(httpServer, {
-  cors: "http://54.158.79.188:3000/",
+  cors: "http://34.232.68.189:3000/",
 });
 
 const allUsers = {};
