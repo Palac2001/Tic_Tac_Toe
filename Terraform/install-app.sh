@@ -14,6 +14,8 @@ if [ ! -f "/usr/local/bin/docker-compose" ]; then
     chmod +x /usr/local/bin/docker-compose
 fi
 
+export VITE_GLOBAL_IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
+
 # Download repository
 git clone https://github.com/Palac2001/Tic_Tac_Toe.git /home/ec2-user/game
 

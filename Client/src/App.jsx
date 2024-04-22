@@ -128,7 +128,7 @@ const App = () => {
     const username = result.value;
     setPlayerName(username);
 
-    const newSocket = io("http://localhost:8080", {
+    const newSocket = io("http://"+import.meta.env.VITE_GLOBAL_IP+":8080/", {
       autoConnect: true,
     });
 
