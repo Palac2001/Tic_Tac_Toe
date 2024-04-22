@@ -3,7 +3,7 @@ const { Server } = require("socket.io");
 
 const httpServer = createServer();
 const io = new Server(httpServer, {
-  cors: "http://107.23.202.110:3000/",
+  cors: "http://localhost:3000/",
 });
 
 const allUsers = {};
@@ -13,6 +13,7 @@ io.on("connection", (socket) => {
   allUsers[socket.id] = {
     socket: socket,
     online: true,
+    playing: false,
   };
 
   socket.on("request_to_play", (data) => {
@@ -30,6 +31,8 @@ io.on("connection", (socket) => {
     }
 
     if (opponentPlayer) {
+      opponentPlayer.playing = true;
+      currentUser.playing = true;
       allRooms.push({
         player1: opponentPlayer,
         player2: currentUser,
